@@ -50,7 +50,7 @@ import numpy as py
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-df=pd.read_csv('SuperStore.csv')
+df=pd.read_csv('FlightInformation (1).csv')sns.scatterplot(df['Duration'],df['Price'],hue=df['Dep_Time'])
 df
 df.head()
 df.info()
@@ -58,35 +58,28 @@ df.describe()
 df.isnull().sum()
 df.dtypes
 
-sns.scatterplot(df['Postal Code'],df['Sales'],hue=df['Row ID'])
-
-sns.barplot(x=df['Row ID'],y=df['Sales'],data=df)
-
-states=df.loc[:,["State","Sales"]]
-states=states.groupby(by=["State"]).sum().sort_values(by="Sales")
-plt.figure(figsize=(17,7))
-sns.barplot(x=states.index,y="Sales",data=states)
-plt.xticks(rotation = 90)
-plt.xlabel=("STATES")
-plt.ylabel=("SALES")
-plt.show()
-
-sns.barplot(df['Postal Code'],df['Ship Mode'],hue=df['Region'])
-
+sns.scatterplot(df['Duration'],df['Price'],hue=df['Dep_Time'])
+sns.barplot(x=df['Dep_Time'],y=df['Price'],data=df)
 df.corr()
-sns.heatmap(df.corr(),annot=True)
+
 ```
 
 ## Output
 
-###  Numerical & Numerical(Scatter plot)
+### Data Head
 ![](./1.png)
 
-### Numerical & Categorical(Bar plot)
+### Data Information
 ![](./2.png)
 
-### Non-Graphical method(correlation)
+###  Numerical & Numerical(Scatter plot)
 ![](./3.png)
+
+### Numerical & Categorical(Bar plot)
+![](./4.png)
+
+### Non-Graphical method(correlation)
+![](./5.png)
 
 ## Result
 Thus we have performed Multivariate EDA on the given data set.
